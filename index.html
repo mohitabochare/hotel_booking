@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Hotel Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Royal Hotel Booking</h1>
+  </header>
+
+  <main>
+    <section class="booking-form">
+      <h2>Book Your Stay</h2>
+      <form id="bookingForm">
+        <label>Guest Name:</label>
+        <input type="text" id="guestName" required placeholder="Enter guest name">
+
+        <label>Check-in Date & Time:</label>
+        <input type="datetime-local" id="checkin" required>
+
+        <label>Check-out Date & Time:</label>
+        <input type="datetime-local" id="checkout" required>
+
+        <label>Room Type:</label>
+        <select id="roomType">
+          <option value="ac">AC Room (₹3000/night)</option>
+          <option value="nonac">Non-AC Room (₹2000/night)</option>
+        </select>
+
+        <label>Number of Guests:</label>
+        <input type="number" id="guests" min="1" max="10" value="1">
+
+        <label>Extra Pillows:</label>
+        <input type="number" id="pillows" min="0" max="10" value="0">
+
+        <label>Extra Beds:</label>
+        <input type="number" id="beds" min="0" max="5" value="0">
+
+        <label>Payment Method:</label>
+        <select id="payment">
+          <option value="online">Online Payment</option>
+          <option value="cash">Cash at Hotel</option>
+        </select>
+
+        <button type="button" onclick="calculatePrice()">Show Price</button>
+      </form>
+
+      <div class="price-display" id="priceDisplay">Total: ₹0.00</div>
+
+      <button id="confirmBtn" onclick="confirmBooking()">Confirm Booking</button>
+    </section>
+
+    <section class="hotel-status">
+      <h2>Hotel Status</h2>
+      <div class="status-info">
+        <div class="status-item">
+          <span class="status-label">Today's Date:</span>
+          <span class="status-value" id="todayDate">Loading...</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Total Rooms:</span>
+          <span class="status-value" id="totalRooms">20</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Available Rooms:</span>
+          <span class="status-value" id="roomsAvailable">20</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Booked Rooms:</span>
+          <span class="status-value" id="bookedRooms">0</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Check-ins Today:</span>
+          <span class="status-value" id="checkInsToday">0</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Check-outs Today:</span>
+          <span class="status-value" id="checkOutsToday">0</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="checkout-management">
+      <h2>Manage Check-outs</h2>
+      <div class="checkout-form">
+        <label>Select Room to Check-out:</label>
+        <select id="checkoutRoomSelect">
+          <option value="">Select a room to check out</option>
+        </select>
+        <button onclick="checkoutRoom()" class="checkout-btn">Check-out</button>
+      </div>
+    </section>
+
+    <section class="info">
+      <h2>Included Items at Check-in</h2>
+      <ul>
+        <li>Tooth brush</li>
+        <li>Soap</li>
+        <li>Tooth paste</li>
+        <li>Towel</li>
+        <li>Television (TV)</li>
+        <li>Washing Services</li>
+        <li>Free Wi-Fi</li>
+        <li>24 hrs Room Service</li>
+      </ul>
+
+      <h2>Rules</h2>
+      <ul>
+        <li>Check-in: 12:00 PM | Check-out: 12:00 PM (next day)</li>
+        <li>ID proof required at arrival</li>
+        <li>Extra services are charged additionally</li>
+        <li>Cancellation 24+ hours before check-in for partial refund</li>
+      </ul>
+    </section>
+
+    <section class="gallery">
+      <h2>Our Rooms</h2>
+      <div class="rooms">
+        <img src="images/room1.jpg" alt="Deluxe AC Room">
+        <img src="images/room2.jpg" alt="Non-AC Room">
+        <img src="images/room3.jpg" alt="Family Suite">
+        <img src="images/room4.jpg" alt="Standard Room">
+      </div>
+    </section>
+
+    <section class="summary">
+      <h2>Booking Summary</h2>
+      <pre id="summary"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Royal Hotel Booking | Designed for simplicity and elegance</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
